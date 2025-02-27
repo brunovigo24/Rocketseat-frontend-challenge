@@ -1,22 +1,26 @@
 import { Header } from "./components/header";
 import "./globals.css";
 import { Saira } from "next/font/google";
+import { FilterContextProvider } from "./contexts/filter-context";
 
 const saira = Saira({
-  weight: ['300', '400', '500', '600'],
-  subsets: ['latin']
-})
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+});
 
-export default function RootLayout ({
+export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={saira.className}>
-        <Header/>
-        {children}</body>
+        <FilterContextProvider>
+          <Header />
+          {children}
+        </FilterContextProvider>
+      </body>
     </html>
-  )
+  );
 }
