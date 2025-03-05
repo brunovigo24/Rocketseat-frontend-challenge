@@ -27,7 +27,7 @@ const FilterItem = styled.li<FilterItemProps>`
   cursor: pointer;
   color: var(--text-dark);
   position: relative;
-  padding-bottom: 8px; /* Ajusta o espaço para a borda animada */
+  padding-bottom: 8px;
 
   &::after {
     content: "";
