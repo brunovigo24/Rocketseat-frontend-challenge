@@ -18,17 +18,27 @@ const FilterList = styled.ul`
 `
 
 const FilterItem = styled.li<FilterItemProps>`
-    font-family: inherit;
-    font-weight: ${props => props.selected ? '600' : '400'};
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    text-transform: uppercase;
-    cursor: pointer;
+  font-family: inherit;
+  font-weight: ${(props) => (props.selected ? "600" : "400")};
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--text-dark);
+  position: relative;
+  padding-bottom: 8px; /* Ajusta o espaço para a borda animada */
 
-    color: var(--text-dark);
-
-    border-bottom: ${props => props.selected ? '4px solid var(--orange-low)' : ''}
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: ${(props) => (props.selected ? "100%" : "0")};
+    height: 4px;
+    background-color: var(--orange-low);
+    transition: width 0.3s ease-in-out;
+  }
 `
 
 export function FilterByType(){
