@@ -1,9 +1,8 @@
 "use client"
 
-import { styled } from "styled-components";
 import { useProducts } from "../hooks/useProducts";
 import { ProductCard } from "./product-card";
-import { title } from "process";
+import { styled } from "styled-components";
 
 const ListContainer = styled.div`
     display: grid;
@@ -17,15 +16,15 @@ const ListContainer = styled.div`
 export function ProductsList(){
     const { data } = useProducts();
     return(
-        <div>{data?.map(product => (
+        <ListContainer>
+            {data?.map(product => 
             <ProductCard
                 key={product.id}
                 title={product.name}
                 price={product.price_in_cents}
                 image={product.image_url}
             />
-        ))}
-
-        </div>
+            )}
+    </ListContainer>
     )
 }
