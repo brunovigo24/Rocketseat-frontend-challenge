@@ -1,7 +1,7 @@
-import { useState } from "react"
 import { styled } from "styled-components"
-import { useFilter } from "../hooks/useFilter"
 import { ArrowIcon } from "./icons/arrow-icon"
+import { useState } from "react"
+import { useFilter } from "../hooks/useFilter"
 import { PriorityTypes } from "../types/priority-types"
 
 
@@ -27,6 +27,10 @@ const FilterContainer = styled.div`
 
         svg {
             margin-left: 16px;
+
+            @media (max-width: 500px) {
+                margin-left: 0;
+            }
         }
     }
 `
@@ -43,6 +47,7 @@ const PriorityFilter = styled.ul`
     list-style: none;
 
     top: 100%;
+    right: 8px;
 
     li {
         color: var(--text-dark);
@@ -54,6 +59,12 @@ const PriorityFilter = styled.ul`
 
     li + li {
         margin-top: 4px;
+    }
+`
+
+const ButtonText = styled.span`
+    @media (max-width: 500px) {
+        display: none;
     }
 `
 
@@ -71,7 +82,7 @@ export function FilterByPriority(){
     return(
         <FilterContainer>
             <button onClick={handleOpen}>
-                Organizar por
+                <ButtonText>Organizar por</ButtonText>
                 <ArrowIcon/>
             </button>
             {isOpen && 

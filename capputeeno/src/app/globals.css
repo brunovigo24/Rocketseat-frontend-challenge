@@ -9,6 +9,24 @@
   --shapes: #DCE2E6;
 }
 
+.mobile-only-cart {
+  display: block;
+}
+
+.desktop-only-cart {
+  display: none;
+}
+
+@media (min-width: 968px) {  
+  .mobile-only-cart {
+      display: none;
+  }
+  
+  .desktop-only-cart {
+      display: block;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

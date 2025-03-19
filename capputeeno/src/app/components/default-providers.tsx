@@ -1,27 +1,28 @@
-"use client";
+"use client"
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { FilterContextProvider } from "../contexts/filter-context";
-import { ThemeProvider } from "styled-components";
 import { ReactNode } from "react";
+import { ThemeProvider } from "styled-components";
+import { FilterContextProvider } from "../contexts/filter-context";
 
 interface DefaultProvidersProps {
-    children: ReactNode;
+    children: ReactNode
 }
 
 const theme = {
-    desktopBreackpoint: "768px",
+    desktopBreakpoint: "968px",
+    tableBreakpoint: "768px",
 }
 
-export function DefaultProviders({children}: DefaultProvidersProps) {
+export function DefaultProviders({ children } : DefaultProvidersProps){
     const client = new QueryClient();
-    return (
-            <QueryClientProvider client={client}>
-                <FilterContextProvider>
-                    <ThemeProvider theme={theme}>
-                        {children}
-                    </ThemeProvider>
-                </FilterContextProvider>
-            </QueryClientProvider>
+    return(
+        <QueryClientProvider client={client}>
+            <FilterContextProvider>
+                <ThemeProvider theme={theme}>
+                    {children}
+                </ThemeProvider>
+            </FilterContextProvider>
+        </QueryClientProvider>
     )
 }
