@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { styled } from "styled-components"
 import { useFilter } from "../hooks/useFilter"
-import { ArrowIcon } from "./arrow-icon"
+import { ArrowIcon } from "./icons/arrow-icon"
 import { PriorityTypes } from "../types/priority-types"
 
 
